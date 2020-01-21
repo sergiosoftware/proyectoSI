@@ -1,1 +1,1 @@
-web: gunicorn wsPost.wsgi
+web: gunicorn wsPost:app --log-file=-
