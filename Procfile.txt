@@ -1,1 +1,1 @@
-web: gunicorn IMGSI.wsgi
+web: gunicorn wsPost.wsgi
