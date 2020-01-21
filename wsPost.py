@@ -38,6 +38,10 @@ def reconocimiento():
     return json_response(idImagen='img123', prediccion=categorias[claseMayorValor[0] - 1], probabilidades=json.dumps(str(predicciones[0])))
     #return "<h1>Bienvenido</h1>"
 
+@app.route('/')
+def index():
+    return "<h1>Bienvenido</h1>"
+
 
 if __name__ == '__main__':
     # Iniciar la aplicacion
