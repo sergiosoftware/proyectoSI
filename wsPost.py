@@ -40,11 +40,11 @@ def reconocimiento():
     # Retornar la respuesta
     # return "<h1>Bienvenido " + imagenAnalizar + "</h1>"
     # my_array = array('i', [1, 2, 3, 4])
-    response = Flask.make_response(json_response(idImagen='img123', prediccion=categorias[claseMayorValor[0] - 1], probabilidades=json.dumps(str(predicciones[0]))))
+    response = Flask.make_response(jsonify(idImagen='img123', prediccion=categorias[claseMayorValor[0] - 1], probabilidades=json.dumps(str(predicciones[0]))))
     response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
     response.headers['Content-Type'] = 'application/json'
-    return jsonify(response)
+    return response
     #return "<h1>Bienvenido</h1>"
 
 
