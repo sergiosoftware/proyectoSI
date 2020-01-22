@@ -1,6 +1,6 @@
 # Importar lo relacionado con el framework flask para los servicios
 import numpy as np
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from flask_json import FlaskJSON, JsonError, json_response, as_json, json
 from flask_cors import CORS, cross_origin
 from datetime import datetime
@@ -44,7 +44,7 @@ def reconocimiento():
     response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
     response.headers['Content-Type'] = 'application/json'
-    return response
+    return jsonify(response)
     #return "<h1>Bienvenido</h1>"
 
 
