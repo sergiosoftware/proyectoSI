@@ -2,6 +2,7 @@
 import numpy as np
 from flask import Flask, render_template, request
 from flask_json import FlaskJSON, JsonError, json_response, as_json, json
+from flask_cors import CORS
 from datetime import datetime
 from prediccion import prediccion
 import cv2
@@ -12,7 +13,7 @@ import base64
 # Instancia de flask
 app = Flask(__name__)
 FlaskJSON(app)
-
+CORS(app)
 # Definir el route con el metodo POST
 @app.route('/reconocimiento',methods=['POST'])
 def reconocimiento():
