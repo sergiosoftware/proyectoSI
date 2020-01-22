@@ -43,6 +43,7 @@ def reconocimiento():
     response = jsonify(idImagen='img123', prediccion=categorias[claseMayorValor[0] - 1], probabilidades=json.dumps(str(predicciones[0])))
     response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+    response.headers['Accept'] = '*'
     response.headers['Content-Type'] = 'application/json'
     return response
     #return "<h1>Bienvenido</h1>"
