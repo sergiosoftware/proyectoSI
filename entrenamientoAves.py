@@ -49,7 +49,7 @@ num_chanels = 1
 # RGB, HSV -> num_chanels=3
 img_shape = (img_size, img_size, num_chanels)
 num_clases = 13
-limiteImagenesPrueba = 60
+limiteImagenesPrueba = 120
 imagenes, etiquetas, probabilidades = cargarDatos("dataset/", num_clases, limiteImagenesPrueba)
 
 model = Sequential()
@@ -83,7 +83,7 @@ model.compile(optimizer=optimizador,
 #Entrenamiento del modelo
 model.fit(x=imagenes,y=probabilidades,epochs=10,batch_size=100)
 
-limiteImagenesPrueba=20
+limiteImagenesPrueba=40
 imagenesPrueba,etiquetasPrueba,probabilidadesPrueba=cargarDatos("test/",num_clases,limiteImagenesPrueba)
 resultados=model.evaluate(x=imagenesPrueba,y=probabilidadesPrueba)
 print("{0}: {1:.2%}".format(model.metrics_names[1], resultados[1]))
