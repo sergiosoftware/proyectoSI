@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import math
-import cv2
+from cv2 import cv2
 
 ## Import the keras API
 from tensorflow.python.keras.models import Sequential

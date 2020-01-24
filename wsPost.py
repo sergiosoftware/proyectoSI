@@ -5,7 +5,6 @@ from flask_json import FlaskJSON, JsonError, json_response, as_json, json
 from flask_cors import CORS, cross_origin
 from datetime import datetime
 from prediccion import prediccion
-import cv2
 from array import *
 # Codificar y decodificar la imagen que se va a analizar
 import base64

@@ -1,6 +1,6 @@
 from tensorflow.python.keras.models import load_model
 import numpy as np
-import cv2
+from cv2 import cv2
 
 class prediccion():
     """
