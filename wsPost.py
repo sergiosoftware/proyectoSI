@@ -6,6 +6,7 @@ from flask_cors import CORS, cross_origin
 from datetime import datetime
 from prediccion import prediccion
 from array import *
+import cv2
 # Codificar y decodificar la imagen que se va a analizar
 import base64
 
@@ -33,13 +34,19 @@ def reconocimiento():
     img = base64.b64decode(imagenAnalizar['imagen'])
     npimg = np.fromstring(img, dtype=np.uint8)
     predicciones = reconocimiento.predecir(npimg)
+    cont = 0
+    for i in predicciones[0]:
+        print(i)
+        predicciones[0][cont] = round(i)
+        cont+=1
     claseMayorValor = np.argmax(predicciones, axis=1)
     print("Estas son las probabilidades ", predicciones[0])
+    print("Prediccion: " , claseMayorValor[0])
     print("La imagen cargada es ", categorias[claseMayorValor[0] - 1])
     # Retornar la respuesta
     # return "<h1>Bienvenido " + imagenAnalizar + "</h1>"
     # my_array = array('i', [1, 2, 3, 4])
-    response = jsonify(idImagen='img123', prediccion=categorias[claseMayorValor[0] - 1], probabilidades=json.dumps(str(predicciones[0])))
+    response = jsonify(idImagen=imagenAnalizar['nombreImagen'], prediccion=categorias[claseMayorValor[0] - 1], probabilidades=json.dumps(str(predicciones[0])))
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
     response.headers['Access-Control-Allow-Methods'] = '*'
     response.headers['Accept'] = '*'
@@ -47,6 +54,8 @@ def reconocimiento():
     response.headers['Content-Type'] = 'application/json'
     return response
     #return "<h1>Bienvenido</h1>"
+
+
 
 
 @app.route('/')

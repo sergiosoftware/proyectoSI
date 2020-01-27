@@ -1,6 +1,6 @@
 from tensorflow.python.keras.models import load_model
 import numpy as np
-from cv2 import cv2
+import cv2
 
 class prediccion():
     """
@@ -25,5 +25,5 @@ class prediccion():
         imagenesAPredecir=np.array(pruebas)
         predicciones=self.model.predict(x=imagenesAPredecir)
         claseMayorValor=np.argmax(predicciones,axis=1)
-        #return claseMayorValor[0]
-        return predicciones
+        return claseMayorValor[0]
+
