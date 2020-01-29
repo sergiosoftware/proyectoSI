@@ -34,11 +34,6 @@ def reconocimiento():
     img = base64.b64decode(imagenAnalizar['imagen'])
     npimg = np.fromstring(img, dtype=np.uint8)
     predicciones = reconocimiento.predecir(npimg)
-    cont = 0
-    for i in predicciones[0]:
-        print(i)
-        predicciones[0][cont] = round(i)
-        cont+=1
     claseMayorValor = np.argmax(predicciones, axis=1)
     print("Estas son las probabilidades ", predicciones[0])
     print("Prediccion: " , claseMayorValor[0])
